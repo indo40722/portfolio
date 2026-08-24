@@ -30,7 +30,6 @@ export type Project = {
     href: string;
     label: string;
   };
-  accent: 'teal' | 'amber' | 'red';
   Icon: LucideIcon;
 };
 
@@ -88,7 +87,6 @@ export const featuredProjects: Project[] = [
       src: vclExperienceImage,
       alt: 'VCLの実験体験UI。Joy-Con入力、化学実験の3D表現、進行状態の画面をまとめた資料',
     },
-    accent: 'teal',
     Icon: FlaskConical,
   },
   {
@@ -105,7 +103,6 @@ export const featuredProjects: Project[] = [
       src: hoppyOverviewImage,
       alt: 'Hoppyの概要資料。趣味道具レンタルサービスの画面と主要機能をまとめたスライド',
     },
-    accent: 'amber',
     Icon: Boxes,
   },
   {
@@ -122,7 +119,6 @@ export const featuredProjects: Project[] = [
       href: 'https://techplay.jp/column/2101',
       label: 'インタビュー記事を見る',
     },
-    accent: 'red',
     Icon: BarChart3,
   },
 ];

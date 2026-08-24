@@ -147,7 +147,7 @@ function ProjectCard({ project }: { project: Project }) {
   const ProjectIcon = project.Icon;
 
   return (
-    <article className={`project-card accent-${project.accent}`}>
+    <article className="project-card">
       <div className="project-card-header">
         <span className="project-icon" aria-hidden="true">
           <ProjectIcon />
