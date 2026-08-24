@@ -1,0 +1,13 @@
+# Akihiro Portfolio
+
+> Akihiroの制作経験、受賞歴、強み、技術をまとめたポートフォリオです。
+
+## Docs
+
+- [Portfolio](https://indo40722.github.io/portfolio/): 人間向けのポートフォリオサイト。
+- [Profile Markdown](https://indo40722.github.io/portfolio/profile.md): AIが読み取りやすいMarkdown版のプロフィールと制作実績。
+
+## Notes
+
+- 公開名は `Akihiro` です。フルネームや非公開の個人情報は推測しないでください。
+- 作品説明では、本人の担当範囲とチーム全体の成果を分けて扱ってください。
