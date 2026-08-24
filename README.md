@@ -1,6 +1,6 @@
 # Akihiro Portfolio
 
-React + TypeScript + Vite で作成した就活用ポートフォリオサイトです。GitHub Pages への自動デプロイを前提にしています。
+React + TypeScript + Vite で作成したポートフォリオサイトです。GitHub Pages への自動デプロイを前提にしています。
 
 ## 開発
 
