@@ -127,7 +127,6 @@ function WorksSection() {
       <SectionHeading
         eyebrow="Works"
         title="制作で担当したことを、作品ごとに見る。"
-        description="VCL、Hoppy、学生データ分析AWARDを、役割と成果が分かる形で整理しています。"
       />
 
       <div className="content-grid">
