@@ -128,8 +128,8 @@ function WorksSection() {
     <section className="section works-section" id="works" aria-labelledby="works-title">
       <SectionHeading
         eyebrow="Works"
-        title="作ったものから、考え方まで見えるようにする。"
-        description="制作物は完成物だけでなく、担当範囲、判断、数字で残った成果まで並べます。"
+        title="制作で担当したことを、作品ごとに見る。"
+        description="VCL、Hoppy、学生データ分析AWARDを、役割と成果が分かる形で整理しています。"
       />
 
       <div className="project-grid">
@@ -187,8 +187,8 @@ function AwardsSection() {
     <section className="section awards-section" id="awards" aria-labelledby="awards-title">
       <SectionHeading
         eyebrow="Awards"
-        title="作る回数を、受賞歴として積み上げてきた。"
-        description="代表作以外の制作も、テーマ、結果、公開時の配慮が分かる形でまとめます。"
+        title="制作と受賞の記録。"
+        description="コンテスト名、結果、作品の要点を短くまとめています。"
       />
       <div className="award-list" aria-label="受賞歴">
         {awardItems.map((awardItem) => (
@@ -239,8 +239,8 @@ function SkillsSection() {
     <section className="section skills-section" id="skills" aria-labelledby="skills-title">
       <SectionHeading
         eyebrow="Skills"
-        title="Reactだけで終わらせず、設計と運用まで伸ばす。"
-        description="いまの重点はTypeScript、React、Node.js、DB設計、レビュー観点です。"
+        title="制作で使った技術と設計観点。"
+        description="画面、API、DB設計を、作品で担当した範囲と結びつけて整理しています。"
       />
       <div className="skill-grid">
         {skillGroups.map((skillGroup) => {
