@@ -236,8 +236,7 @@ function SkillsSection() {
     <section id="skills" className="content-section" aria-labelledby="skills-title">
       <SectionHeading
         eyebrow="Skills"
-        title="制作で使った技術と設計観点。"
-        description="画面、API、DB設計を、作品で担当した範囲と結びつけて整理しています。"
+        title="制作で使った技術。"
       />
       <div className="content-grid">
         {skillGroups.map((skillGroup) => {

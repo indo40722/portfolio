@@ -216,7 +216,7 @@ export const skillGroups: SkillGroup[] = [
   {
     title: 'Database / Design',
     description: '後から変更しにくい土台ほど、先に整理してから実装します。',
-    items: ['DB設計', 'Table Definition', 'JOIN', 'Docs', 'Test Plan'],
+    items: ['DB設計', 'JOIN', 'Docs', 'Test Plan'],
     Icon: Database,
   },
 ];
