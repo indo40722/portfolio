@@ -16,24 +16,15 @@ import {
   navigationItems,
   profile,
   profileLinks,
-  projectFilters,
   skillGroups,
   strengths,
-  timelineItems,
   type Project,
-  type ProjectCategory,
 } from './content/portfolio';
 
 const AwardIcon = awardIcon;
 
 function App() {
-  const [selectedProjectCategory, setSelectedProjectCategory] = useState<ProjectCategory>('all');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const visibleProjects =
-    selectedProjectCategory === 'all'
-      ? featuredProjects
-      : featuredProjects.filter((project) => project.category === selectedProjectCategory);
 
   function closeMenu() {
     setIsMenuOpen(false);
@@ -74,15 +65,10 @@ function App() {
 
       <main id="main-content">
         <HeroSection />
-        <WorksSection
-          visibleProjects={visibleProjects}
-          selectedProjectCategory={selectedProjectCategory}
-          onProjectCategoryChange={setSelectedProjectCategory}
-        />
+        <WorksSection />
         <AwardsSection />
         <StrengthsSection />
         <SkillsSection />
-        <TimelineSection />
         <ContactSection />
       </main>
     </>
@@ -137,17 +123,7 @@ function MetricStrip() {
   );
 }
 
-type WorksSectionProps = {
-  visibleProjects: Project[];
-  selectedProjectCategory: ProjectCategory;
-  onProjectCategoryChange: (category: ProjectCategory) => void;
-};
-
-function WorksSection({
-  visibleProjects,
-  selectedProjectCategory,
-  onProjectCategoryChange,
-}: WorksSectionProps) {
+function WorksSection() {
   return (
     <section className="section works-section" id="works" aria-labelledby="works-title">
       <SectionHeading
@@ -156,22 +132,8 @@ function WorksSection({
         description="制作物は完成物だけでなく、担当範囲、判断、数字で残った成果まで並べます。"
       />
 
-      <div className="filter-row" role="group" aria-label="作品カテゴリ">
-        {projectFilters.map((filter) => (
-          <button
-            key={filter.value}
-            className="filter-button"
-            type="button"
-            aria-pressed={selectedProjectCategory === filter.value}
-            onClick={() => onProjectCategoryChange(filter.value)}
-          >
-            {filter.label}
-          </button>
-        ))}
-      </div>
-
       <div className="project-grid">
-        {visibleProjects.map((project) => (
+        {featuredProjects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
       </div>
@@ -299,29 +261,6 @@ function SkillsSection() {
             </article>
           );
         })}
-      </div>
-    </section>
-  );
-}
-
-function TimelineSection() {
-  return (
-    <section className="section timeline-section" id="timeline" aria-labelledby="timeline-title">
-      <SectionHeading
-        eyebrow="Timeline"
-        title="経験が増えるたびに、作る前の整理が少しずつ深くなった。"
-        description={`${profile.graduation}。Web開発エンジニアとして、ユーザー価値と品質を両方見られる状態を目指しています。`}
-      />
-      <div className="timeline-list">
-        {timelineItems.map((item) => (
-          <article className="timeline-item" key={`${item.year}-${item.title}`}>
-            <time>{item.year}</time>
-            <div>
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
-            </div>
-          </article>
-        ))}
       </div>
     </section>
   );

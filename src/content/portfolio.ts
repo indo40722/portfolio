@@ -14,12 +14,9 @@ import type { LucideIcon } from 'lucide-react';
 import hoppyOverviewImage from '../assets/hoppy-overview.png';
 import vclExperienceImage from '../assets/vcl-experience-ui.png';
 
-export type ProjectCategory = 'all' | 'web' | 'team' | 'data';
-
 export type Project = {
   id: string;
   title: string;
-  category: Exclude<ProjectCategory, 'all'>;
   eyebrow: string;
   summary: string;
   role: string;
@@ -56,7 +53,6 @@ export const profile = {
   name: 'Akihiro',
   romanName: 'Web Developer Student',
   school: 'HAL大阪 高度情報学科 WEB開発エンジニア専攻',
-  graduation: '2028年3月 卒業見込み',
   headline: 'ユーザーの困りごとを、動く仕組みに変えるWebエンジニア志望。',
   headlineLines: ['ユーザーの困りごとを、', '動く仕組みに変える', 'Webエンジニア志望。'],
   introduction:
@@ -68,7 +64,6 @@ export const navigationItems = [
   { label: 'Awards', href: '#awards' },
   { label: 'Strengths', href: '#strengths' },
   { label: 'Skills', href: '#skills' },
-  { label: 'Timeline', href: '#timeline' },
 ];
 
 export const metrics = [
@@ -78,18 +73,10 @@ export const metrics = [
   { value: '1位', label: 'コールセンター日間ランキング' },
 ];
 
-export const projectFilters: { label: string; value: ProjectCategory }[] = [
-  { label: 'All', value: 'all' },
-  { label: 'Web', value: 'web' },
-  { label: 'Team', value: 'team' },
-  { label: 'Data', value: 'data' },
-];
-
 export const featuredProjects: Project[] = [
   {
     id: 'vcl',
     title: 'VCL / Virtual Chemistry Lab',
-    category: 'team',
     eyebrow: '学内コンテスト 金賞',
     summary:
       'Joy-Con操作と3D表現を組み合わせ、化学実験を安全に体験できる学習システム。操作、反応、結果表示、解説を一つの流れとして設計しました。',
@@ -107,7 +94,6 @@ export const featuredProjects: Project[] = [
   {
     id: 'hoppy',
     title: 'Hoppy',
-    category: 'web',
     eyebrow: 'Webシステム学内コンペ 銀賞',
     summary:
       'カメラ、アウトドア用品、楽器などを貸し借りできるWebサービス。商品レンタルに加え、コミュニティ、Q&A、フォロー、サポートを一つの体験として設計しました。',
@@ -125,7 +111,6 @@ export const featuredProjects: Project[] = [
   {
     id: 'data-award',
     title: '学生データ分析AWARD 2025',
-    category: 'data',
     eyebrow: '2026年3月7日-8日 / 準優勝',
     summary:
       '東京・六本木での1泊2日合宿型コンテストに参加。初対面の3人チームで「豊島区の2040年問題」に取り組み、課題整理から提案発表まで短時間でまとめました。',
@@ -219,34 +204,6 @@ export const skillGroups: SkillGroup[] = [
     description: '後から変更しにくい土台ほど、先に整理してから実装します。',
     items: ['DB設計', 'Table Definition', 'JOIN', 'Docs', 'Test Plan'],
     Icon: Database,
-  },
-];
-
-export const timelineItems = [
-  {
-    year: '2024',
-    title: 'HAL大阪 入学',
-    body: '高度情報学科 WEB開発エンジニア専攻で、Webアプリケーション開発を学び始めました。',
-  },
-  {
-    year: '2025',
-    title: 'HalterでHAL EVENT WEEK 技術力賞',
-    body: 'Tinderのスワイプ体験を参考に、短時間で判断できるUIと画面遷移を試しました。',
-  },
-  {
-    year: '2026',
-    title: 'VCLでHAL EVENT WEEK 金賞',
-    body: '4人チームの代表として、Joy-Conと3D表現を使った体験型学習システムを制作しました。',
-  },
-  {
-    year: '2025-2026',
-    title: 'Hoppyを7か月で制作',
-    body: '趣味道具の貸し借りを支えるWebサービスで、コミュニティとサポート領域を担当しました。',
-  },
-  {
-    year: '2026',
-    title: '学生データ分析AWARD 準優勝',
-    body: '初対面チームで社会課題を分析し、短時間で提案資料と発表へ落とし込みました。',
   },
 ];
 
