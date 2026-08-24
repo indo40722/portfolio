@@ -35,9 +35,9 @@ function App() {
       <a className="skip-link" href="#main-content">
         本文へ移動
       </a>
-      <header className="site-header">
-        <a className="brand-mark" href="#top" aria-label="トップへ戻る">
-          <span className="brand-symbol">A</span>
+      <header id="site-header">
+        <a id="site-brand" href="#top" aria-label="トップへ戻る">
+          <span id="brand-symbol">A</span>
           <span>
             <strong>{profile.name}</strong>
             <small>{profile.romanName}</small>
@@ -45,16 +45,17 @@ function App() {
         </a>
 
         <button
-          className="icon-button menu-button"
+          id="menu-toggle"
           type="button"
           aria-label={isMenuOpen ? 'メニューを閉じる' : 'メニューを開く'}
+          aria-controls="site-navigation"
           aria-expanded={isMenuOpen}
           onClick={() => setIsMenuOpen((currentValue) => !currentValue)}
         >
           {isMenuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
         </button>
 
-        <nav className={isMenuOpen ? 'site-nav is-open' : 'site-nav'} aria-label="主要ナビゲーション">
+        <nav id="site-navigation" aria-label="主要ナビゲーション">
           {navigationItems.map((item) => (
             <a key={item.href} href={item.href} onClick={closeMenu}>
               {item.label}
@@ -77,14 +78,12 @@ function App() {
 
 function HeroSection() {
   return (
-    <section className="hero-section" id="top" aria-labelledby="hero-title">
+    <section id="top" aria-labelledby="hero-title">
       <img
-        className="hero-image"
         src={heroWorkbench}
         alt="化学実験器具、コード、データ図表、設計ボードが並ぶ開発ワークベンチ"
       />
-      <div className="hero-shade" />
-      <div className="hero-content">
+      <div id="hero-content">
         <p className="eyebrow">{profile.school}</p>
         <h1 id="hero-title" aria-label={profile.headline}>
           {profile.headlineLines.map((headlineLine) => (
@@ -93,8 +92,8 @@ function HeroSection() {
             </span>
           ))}
         </h1>
-        <p className="hero-copy">{profile.introduction}</p>
-        <div className="hero-actions" aria-label="主要リンク">
+        <p id="hero-copy">{profile.introduction}</p>
+        <div className="action-row" aria-label="主要リンク">
           <a className="primary-action" href="#works">
             <Sparkles aria-hidden="true" />
             作品を見る
@@ -125,14 +124,14 @@ function MetricStrip() {
 
 function WorksSection() {
   return (
-    <section className="section works-section" id="works" aria-labelledby="works-title">
+    <section id="works" className="content-section" aria-labelledby="works-title">
       <SectionHeading
         eyebrow="Works"
         title="制作で担当したことを、作品ごとに見る。"
         description="VCL、Hoppy、学生データ分析AWARDを、役割と成果が分かる形で整理しています。"
       />
 
-      <div className="project-grid">
+      <div className="content-grid">
         {featuredProjects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
@@ -184,7 +183,7 @@ function ProjectCard({ project }: { project: Project }) {
 
 function AwardsSection() {
   return (
-    <section className="section awards-section" id="awards" aria-labelledby="awards-title">
+    <section id="awards" className="content-section" aria-labelledby="awards-title">
       <SectionHeading
         eyebrow="Awards"
         title="制作と受賞の記録。"
@@ -209,13 +208,13 @@ function AwardsSection() {
 
 function StrengthsSection() {
   return (
-    <section className="section strengths-section" id="strengths" aria-labelledby="strengths-title">
+    <section id="strengths" className="content-section" aria-labelledby="strengths-title">
       <SectionHeading
         eyebrow="Strengths"
         title="強みは、相手の状況に合わせて動きを変えられること。"
         description="開発でも接客でも、最初に見るのは相手がどこで迷っているかです。"
       />
-      <div className="strength-grid">
+      <div className="content-grid">
         {strengths.map((strength) => {
           const StrengthIcon = strength.Icon;
 
@@ -236,13 +235,13 @@ function StrengthsSection() {
 
 function SkillsSection() {
   return (
-    <section className="section skills-section" id="skills" aria-labelledby="skills-title">
+    <section id="skills" className="content-section" aria-labelledby="skills-title">
       <SectionHeading
         eyebrow="Skills"
         title="制作で使った技術と設計観点。"
         description="画面、API、DB設計を、作品で担当した範囲と結びつけて整理しています。"
       />
-      <div className="skill-grid">
+      <div className="content-grid">
         {skillGroups.map((skillGroup) => {
           const SkillIcon = skillGroup.Icon;
 
@@ -271,7 +270,7 @@ function ContactSection() {
   const hasEmailLink = profileLinks.email.length > 0;
 
   return (
-    <section className="contact-section" aria-labelledby="contact-title">
+    <section id="contact" aria-labelledby="contact-title">
       <div>
         <p className="eyebrow">Contact</p>
         <h2 id="contact-title">使いやすさまで考える開発に関わりたいです。</h2>
@@ -279,7 +278,7 @@ function ContactSection() {
           <p key={note}>{note}</p>
         ))}
       </div>
-      <div className="contact-actions" aria-label="連絡先リンク">
+      <div className="action-row" aria-label="連絡先リンク">
         {hasGitHubLink && (
           <a className="secondary-action dark" href={profileLinks.github} target="_blank" rel="noreferrer">
             <ArrowUpRight aria-hidden="true" />
