@@ -97,21 +97,7 @@ img {
 #site-brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
   min-width: 0;
-}
-
-#brand-symbol {
-  display: grid;
-  place-items: center;
-  width: 42px;
-  aspect-ratio: 1;
-  border: 1px solid rgba(251, 248, 241, 0.28);
-  border-radius: 6px;
-  font-family: 'BIZ UDPGothic', 'Yu Gothic', 'YuGothic', sans-serif;
-  font-weight: 700;
-  color: var(--amber-soft);
-  background: rgba(251, 248, 241, 0.08);
 }
 
 #site-brand strong,

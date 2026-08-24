@@ -37,7 +37,6 @@ function App() {
       </a>
       <header id="site-header">
         <a id="site-brand" href="#top" aria-label="トップへ戻る">
-          <span id="brand-symbol">A</span>
           <span>
             <strong>{profile.name}</strong>
             <small>{profile.romanName}</small>
@@ -212,7 +211,6 @@ function StrengthsSection() {
       <SectionHeading
         eyebrow="Strengths"
         title="強みは、相手の状況に合わせて動きを変えられること。"
-        description="開発でも接客でも、最初に見るのは相手がどこで迷っているかです。"
       />
       <div className="content-grid">
         {strengths.map((strength) => {
@@ -305,7 +303,7 @@ function ContactSection() {
 type SectionHeadingProps = {
   eyebrow: string;
   title: string;
-  description: string;
+  description?: string;
 };
 
 function SectionHeading({ eyebrow, title, description }: SectionHeadingProps) {
@@ -315,7 +313,7 @@ function SectionHeading({ eyebrow, title, description }: SectionHeadingProps) {
     <div className="section-heading">
       <p className="eyebrow">{eyebrow}</p>
       <h2 id={headingId}>{title}</h2>
-      <p>{description}</p>
+      {description && <p>{description}</p>}
     </div>
   );
 }
