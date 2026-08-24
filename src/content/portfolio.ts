@@ -129,6 +129,20 @@ export const featuredProjects: Project[] = [
 
 export const awardItems: AwardItem[] = [
   {
+    date: '2026.05.30-31',
+    contest: 'テラッカソン10th / kakeruXテーマ',
+    prize: '個人賞',
+    project: 'Tea Bridge',
+    note: '抹茶農家と海外事業者をつなぐBtoBマッチング案を制作。システム担当として、要件整理と画面実装を担いました。',
+  },
+  {
+    date: '2026.05.30-31',
+    contest: 'テラッカソン10th / kakeruXテーマ',
+    prize: 'チーム賞',
+    project: 'Tea Bridge / T3',
+    note: 'T3として、農家ストーリー、品質指標、サンプル依頼、商談・農園ツアーまで含むサービス案を発表しました。',
+  },
+  {
     date: '2026.03.16',
     contest: 'Webシステム学内コンペ',
     prize: '銀賞',
