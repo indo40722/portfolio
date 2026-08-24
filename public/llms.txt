@@ -5,6 +5,9 @@
 ## Docs
 
 - [Portfolio](https://indo40722.github.io/portfolio/): 人間向けのポートフォリオサイト。
+- [VCL Detail](https://indo40722.github.io/portfolio/#/works/vcl): VCL / Virtual Chemistry Labの詳細。
+- [Hoppy Detail](https://indo40722.github.io/portfolio/#/works/hoppy): Hoppyの詳細。
+- [Data Award Detail](https://indo40722.github.io/portfolio/#/works/data-award): 学生データ分析AWARD 2025の詳細。
 - [Profile Markdown](https://indo40722.github.io/portfolio/profile.md): AIが読み取りやすいMarkdown版のプロフィールと制作実績。
 
 ## Notes

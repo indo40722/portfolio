@@ -28,6 +28,10 @@
 - ファーストビューで氏名、学校、志望軸、代表的な成果が分かること。
 - 代表実績として、VCL、Hoppy、学生データ分析AWARD 2025、コールセンターでの成果を扱うこと。
 - 作品一覧はカテゴリフィルターを置かず、代表作品を一覧で確認できること。
+- 代表作品カードから詳細画面へ移動でき、概要だけでなく担当範囲、判断、成果を深掘りできること。
+- 作品詳細画面は作品ごとの専用ページを個別実装せず、共通テンプレートと作品データで表示できること。
+- 作品詳細画面は、概要、基本情報、画像ギャラリー、担当範囲、判断、成果、技術タグを同じ構成で確認できること。
+- 画像ギャラリーは複数画像に対応し、サムネイルを選ぶとメイン画像が切り替わること。
 - VCL、Hoppyなど制作画面が残っている作品は、実際の画面・資料画像を作品カードに表示すること。
 - Hoppyの開発時間は、個人の作業時間ではなく「チーム合計開発時間」として伝えること。
 - 学生データ分析AWARD 2025は、公開されているインタビュー記事への外部リンクを掲載できること。
@@ -62,10 +66,14 @@
 
 - Reactコンポーネント名は大文字始まりにする。
 - Hooksはコンポーネントのトップレベルで呼び出す。
-- 表示データは `src/content/portfolio.ts` に集約し、画面実装と内容を分離する。
+- 追加・更新が発生する表示データは `src/content/portfolio.ts` に集約し、画面実装と内容を分離する。
+- ヒーロー、ヘッダーなど一度しか使わないページ固有の文言は、データ化せずTSXのマークアップ側に直接置く。
 - 作品一覧は表示用stateを持たず、`featuredProjects` をそのまま描画する。
+- 作品詳細はGitHub Pagesで直接配信できるよう、`#/works/{projectId}` のハッシュURLで表示する。
 - TypeScriptの型で作品、スキル、受賞歴の構造を明示する。
 - 作品画像や外部リンクは任意項目として型定義し、データがある場合だけReact側で表示する。
+- 作品詳細データは `detail` と `gallery` として `src/content/portfolio.ts` に持たせ、作品追加時に共通テンプレートへ流し込めるようにする。
+- 追加・更新が発生する制作物、受賞歴、スキルは `src/content/portfolio.ts` の配列データとして管理する。
 - 受賞歴は表示データとして `src/content/portfolio.ts` に集約し、コンポーネント側は一覧表示に専念する。
 - AI相談ボタンは表示状態だけをReact stateで持ち、プロンプト本文はページURL、Markdown URL、llms.txt URLから生成する。
 - `id` はページ内アンカー、ARIA参照、固有ランドマークに使い、再利用する見た目や状態表現には `className` を使う。
@@ -87,10 +95,14 @@
 ## 参照した公開ドキュメント
 
 - React: コンポーネント名、Hooks、state設計
+- React: JSXによるマークアップ記述
 - React: `useState` による表示状態の管理
+- React: `useEffect` によるブラウザURL hashとの同期
+- React: `map()` で描画するリストのkey設計
 - TypeScript: object type、utility type
 - Vite: GitHub Pagesへの静的デプロイ、base設定
 - GitHub Docs: GitHub Pagesのcustom workflow
+- MDN Web Docs: `hashchange` eventと `Location.hash`
 - llms.txt: ルートに置くAI向けMarkdown案内ファイルの構成
 - Vercel Docs: AIエージェント向けMarkdownアクセスと `llms.txt` の考え方
 - W3C WCAG 2.2: テキストと背景のコントラスト基準

@@ -14,6 +14,30 @@ import type { LucideIcon } from 'lucide-react';
 import hoppyOverviewImage from '../assets/hoppy-overview.png';
 import vclExperienceImage from '../assets/vcl-experience-ui.png';
 
+export type ProjectImage = {
+  src: string;
+  alt: string;
+  caption?: string;
+};
+
+export type ProjectDetailSection = {
+  eyebrow: string;
+  title: string;
+  body: string;
+  points?: string[];
+};
+
+export type ProjectFact = {
+  label: string;
+  value: string;
+};
+
+export type ProjectDetail = {
+  lead: string;
+  facts: ProjectFact[];
+  sections: ProjectDetailSection[];
+};
+
 export type Project = {
   id: string;
   title: string;
@@ -22,14 +46,13 @@ export type Project = {
   role: string;
   evidence: string[];
   stack: string[];
-  image?: {
-    src: string;
-    alt: string;
-  };
+  image?: ProjectImage;
+  gallery?: ProjectImage[];
   link?: {
     href: string;
     label: string;
   };
+  detail: ProjectDetail;
   Icon: LucideIcon;
 };
 
@@ -46,16 +69,6 @@ export type AwardItem = {
   prize: string;
   project: string;
   note: string;
-};
-
-export const profile = {
-  name: 'Akihiro',
-  romanName: 'Web Developer Student',
-  school: 'HAL大阪 高度情報学科 WEB開発エンジニア専攻',
-  headline: 'ユーザーの困りごとを、動く仕組みに変えるWebエンジニア志望。',
-  headlineLines: ['ユーザーの困りごとを、', '動く仕組みに変える', 'Webエンジニア志望。'],
-  introduction:
-    'チーム開発では、使う人の迷いや不安を見つけ、画面体験・機能設計・進行管理へ落とし込むことを大切にしています。VCLでは体験型の学習システム、Hoppyでは趣味道具の貸し借りを支えるWebサービスを制作しました。',
 };
 
 export const navigationItems = [
@@ -86,6 +99,51 @@ export const featuredProjects: Project[] = [
     image: {
       src: vclExperienceImage,
       alt: 'VCLの実験体験UI。Joy-Con入力、化学実験の3D表現、進行状態の画面をまとめた資料',
+      caption: 'Joy-Con入力、実験の3D表示、進行状態、学習進捗をまとめたVCLの画面資料',
+    },
+    gallery: [
+      {
+        src: vclExperienceImage,
+        alt: 'VCLの実験体験UI。Joy-Con入力、化学実験の3D表現、進行状態の画面をまとめた資料',
+        caption: 'Joy-Con入力、実験の3D表示、進行状態、学習進捗をまとめたVCLの画面資料',
+      },
+    ],
+    detail: {
+      lead:
+        '化学実験の一連の流れを、実物の薬品を使わずにWeb上で体験できる学習システムです。操作して、反応を見て、結果と解説を確認するところまでを一つの体験として設計しました。',
+      facts: [
+        { label: '結果', value: 'HAL EVENT WEEK 金賞' },
+        { label: '体制', value: '4人チーム / リーダー' },
+        { label: '担当', value: '画面体験・フロントエンド' },
+        { label: '入力', value: 'Joy-Con' },
+      ],
+      sections: [
+        {
+          eyebrow: 'Overview',
+          title: '安全に実験の流れを体験する',
+          body:
+            '注ぐ、混ぜる、反応を見る、結果を確認するという化学実験の流れを、3D表現と画面遷移で再現しました。学習システムとして、ただ操作できるだけでなく、結果表示や解説まで自然につながることを重視しました。',
+        },
+        {
+          eyebrow: 'Role',
+          title: '画面体験とチーム進行を担当',
+          body:
+            '4人チームのリーダーとして、企画整理、役割分担、技術選定、ドキュメント整理を担当しました。実装面では、Joy-Con入力と画面上の実験進行がつながる部分を中心に制作しました。',
+          points: ['企画整理', '入力方式の検証', 'Joy-Con入力と画面連携', '進行処理と学習進捗の整理'],
+        },
+        {
+          eyebrow: 'Decision',
+          title: '入力方式を検証してJoy-Conを採用',
+          body:
+            '最初からJoy-Conだけに決めていたわけではありません。画像認識、QRコード、RGB検出、マイコンとジャイロセンサーなどを比較し、操作感と実装の現実性を見ながらJoy-Conを採用しました。',
+        },
+        {
+          eyebrow: 'Result',
+          title: '学内発表で伝わる体験にまとめる',
+          body:
+            '操作、反応、結果表示、解説を一つの流れにまとめ、HAL EVENT WEEKで金賞を受賞しました。初期プロトタイプでも、化学実験の導線を動く形にしたことで銅賞を受賞しています。',
+        },
+      ],
     },
     Icon: FlaskConical,
   },
@@ -102,6 +160,51 @@ export const featuredProjects: Project[] = [
     image: {
       src: hoppyOverviewImage,
       alt: 'Hoppyの概要資料。趣味道具レンタルサービスの画面と主要機能をまとめたスライド',
+      caption: '趣味道具レンタル、コミュニティ、Q&A、サポート機能をまとめたHoppyの概要資料',
+    },
+    gallery: [
+      {
+        src: hoppyOverviewImage,
+        alt: 'Hoppyの概要資料。趣味道具レンタルサービスの画面と主要機能をまとめたスライド',
+        caption: '趣味道具レンタル、コミュニティ、Q&A、サポート機能をまとめたHoppyの概要資料',
+      },
+    ],
+    detail: {
+      lead:
+        '趣味道具を貸し借りできるWebサービスです。商品レンタルだけでなく、投稿、Q&A、フォロー、問い合わせ、FAQ、利用ガイドまで含めて、趣味を始める前の不安を減らす体験を目指しました。',
+      facts: [
+        { label: '結果', value: 'Webシステム学内コンペ 銀賞' },
+        { label: '体制', value: '4人チーム' },
+        { label: '期間', value: '7か月' },
+        { label: '開発時間', value: 'チーム合計1044時間' },
+      ],
+      sections: [
+        {
+          eyebrow: 'Overview',
+          title: 'レンタル前後の不安まで扱う',
+          body:
+            'カメラ、アウトドア用品、楽器などを貸し借りできるサービスとして制作しました。レンタル機能だけではなく、利用前に質問したり、投稿から雰囲気を知ったり、困った時にサポートへ進める導線も含めています。',
+        },
+        {
+          eyebrow: 'Role',
+          title: 'コミュニティ機能とサポート機能を担当',
+          body:
+            '投稿、画像投稿、いいね、コメント、Q&A、フォロー、お問い合わせ、FAQ、利用ガイドを実装しました。機能数が多いため、画面ごとの責務とデータのつながりを整理しながら進めました。',
+          points: ['投稿・画像投稿', 'いいね・コメント', 'Q&A・フォロー', 'お問い合わせ・FAQ・利用ガイド'],
+        },
+        {
+          eyebrow: 'Design',
+          title: '52テーブルを前提に機能を組み立てる',
+          body:
+            'コミュニティ、商品、ユーザー、問い合わせなど複数の領域を扱うため、テーブル構成と画面で使うデータの関係を意識しました。後から変更しにくい部分ほど、先に整理してから実装することを意識しました。',
+        },
+        {
+          eyebrow: 'Result',
+          title: 'チーム合計1044時間の制作としてまとめる',
+          body:
+            '4人チームで7か月制作し、チーム合計開発時間は1044時間です。Webシステム学内コンペで銀賞を受賞しました。',
+        },
+      ],
     },
     Icon: Boxes,
   },
@@ -118,6 +221,37 @@ export const featuredProjects: Project[] = [
     link: {
       href: 'https://techplay.jp/column/2101',
       label: 'インタビュー記事を見る',
+    },
+    detail: {
+      lead:
+        '東京・六本木で行われた1泊2日の合宿型コンテストです。初対面の3人チームで豊島区の2040年問題に取り組み、短時間で課題整理、分析、提案発表まで進めました。',
+      facts: [
+        { label: '結果', value: '準優勝' },
+        { label: '期間', value: '2026年3月7日-8日' },
+        { label: '体制', value: '初対面の3人チーム' },
+        { label: 'テーマ', value: '豊島区の2040年問題' },
+      ],
+      sections: [
+        {
+          eyebrow: 'Overview',
+          title: '短時間で社会課題を提案に変える',
+          body:
+            '資料とオープンデータを読み込み、限られた時間の中で論点を整理しました。分析結果をそのまま並べるのではなく、提案として伝わる形にすることが重要でした。',
+        },
+        {
+          eyebrow: 'Role',
+          title: '論点整理と発表ストーリーに参加',
+          body:
+            '資料の読み込み、オープンデータの確認、解決策の方向性、発表ストーリーの組み立てに参加しました。初対面チームだったため、考えていることを短く共有しながら進める必要がありました。',
+          points: ['資料・オープンデータの読み込み', '課題の論点整理', '解決策の方向性づけ', '発表ストーリーの組み立て'],
+        },
+        {
+          eyebrow: 'Result',
+          title: '準優勝として評価される',
+          body:
+            '豊島区の2040年問題に対して、分析から提案発表までを短時間でまとめ、学生データ分析AWARD 2025で準優勝しました。',
+        },
+      ],
     },
     Icon: BarChart3,
   },

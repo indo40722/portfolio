@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   ArrowUpRight,
+  ArrowLeft,
   Check,
   CircleHelp,
   Clipboard,
@@ -18,7 +19,6 @@ import {
   featuredProjects,
   metrics,
   navigationItems,
-  profile,
   profileLinks,
   skillGroups,
   strengths,
@@ -29,10 +29,29 @@ const AwardIcon = awardIcon;
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeProjectId, setActiveProjectId] = useState(getProjectIdFromHash);
+  const activeProject = featuredProjects.find((project) => project.id === activeProjectId);
 
   function closeMenu() {
     setIsMenuOpen(false);
   }
+
+  useEffect(() => {
+    function handleHashChange() {
+      setActiveProjectId(getProjectIdFromHash());
+      setIsMenuOpen(false);
+    }
+
+    window.addEventListener('hashchange', handleHashChange);
+
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  useEffect(() => {
+    if (activeProject) {
+      window.scrollTo({ top: 0 });
+    }
+  }, [activeProject]);
 
   return (
     <>
@@ -42,8 +61,8 @@ function App() {
       <header id="site-header">
         <a id="site-brand" href="#top" aria-label="トップへ戻る">
           <span>
-            <strong>{profile.name}</strong>
-            <small>{profile.romanName}</small>
+            <strong>Akihiro</strong>
+            <small>Web Developer Student</small>
           </span>
         </a>
 
@@ -68,12 +87,18 @@ function App() {
       </header>
 
       <main id="main-content">
-        <HeroSection />
-        <WorksSection />
-        <AwardsSection />
-        <StrengthsSection />
-        <SkillsSection />
-        <ContactSection />
+        {activeProject ? (
+          <ProjectDetailPage project={activeProject} />
+        ) : (
+          <>
+            <HeroSection />
+            <WorksSection />
+            <AwardsSection />
+            <StrengthsSection />
+            <SkillsSection />
+            <ContactSection />
+          </>
+        )}
       </main>
       <AskPortfolioWidget />
     </>
@@ -88,15 +113,21 @@ function HeroSection() {
         alt="化学実験器具、コード、データ図表、設計ボードが並ぶ開発ワークベンチ"
       />
       <div id="hero-content">
-        <p className="eyebrow">{profile.school}</p>
-        <h1 id="hero-title" aria-label={profile.headline}>
-          {profile.headlineLines.map((headlineLine) => (
-            <span className="hero-title-line" key={headlineLine} aria-hidden="true">
-              {headlineLine}
-            </span>
-          ))}
+        <p className="eyebrow">HAL大阪 高度情報学科 WEB開発エンジニア専攻</p>
+        <h1 id="hero-title" aria-label="ユーザーの困りごとを、動く仕組みに変えるWebエンジニア志望。">
+          <span className="hero-title-line" aria-hidden="true">
+            ユーザーの困りごとを、
+          </span>
+          <span className="hero-title-line" aria-hidden="true">
+            動く仕組みに変える
+          </span>
+          <span className="hero-title-line" aria-hidden="true">
+            Webエンジニア志望。
+          </span>
         </h1>
-        <p id="hero-copy">{profile.introduction}</p>
+        <p id="hero-copy">
+          チーム開発では、使う人の迷いや不安を見つけ、画面体験・機能設計・進行管理へ落とし込むことを大切にしています。VCLでは体験型の学習システム、Hoppyでは趣味道具の貸し借りを支えるWebサービスを制作しました。
+        </p>
         <div className="action-row" aria-label="主要リンク">
           <a className="primary-action" href="#works">
             <Sparkles aria-hidden="true" />
@@ -169,6 +200,10 @@ function ProjectCard({ project }: { project: Project }) {
           <li key={evidenceItem}>{evidenceItem}</li>
         ))}
       </ul>
+      <a className="project-link" href={`#/works/${project.id}`}>
+        <ArrowUpRight aria-hidden="true" />
+        詳細を見る
+      </a>
       {project.link && (
         <a className="project-link" href={project.link.href} target="_blank" rel="noreferrer">
           <ArrowUpRight aria-hidden="true" />
@@ -181,6 +216,111 @@ function ProjectCard({ project }: { project: Project }) {
         ))}
       </ul>
     </article>
+  );
+}
+
+function ProjectDetailPage({ project }: { project: Project }) {
+  const ProjectIcon = project.Icon;
+  const galleryImages = project.gallery ?? (project.image ? [project.image] : []);
+
+  return (
+    <article className="detail-page">
+      <section className="detail-hero" aria-labelledby="detail-title">
+        <a className="back-link" href="#works">
+          <ArrowLeft aria-hidden="true" />
+          Works に戻る
+        </a>
+        <div className="detail-hero-grid">
+          <div>
+            <div className="detail-title-row">
+              <span className="project-icon" aria-hidden="true">
+                <ProjectIcon />
+              </span>
+              <p className="eyebrow">{project.eyebrow}</p>
+            </div>
+            <h1 id="detail-title">{project.title}</h1>
+            <p className="detail-lead">{project.detail.lead}</p>
+          </div>
+          <dl className="detail-facts" aria-label={`${project.title} の概要`}>
+            {project.detail.facts.map((fact) => (
+              <div key={fact.label}>
+                <dt>{fact.label}</dt>
+                <dd>{fact.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      <section
+        className={galleryImages.length > 0 ? 'detail-body' : 'detail-body no-gallery'}
+        aria-label={`${project.title} の詳細`}
+      >
+        {galleryImages.length > 0 && <ProjectGallery key={project.id} images={galleryImages} title={project.title} />}
+        <div className="detail-copy">
+          {project.detail.sections.map((section) => (
+            <section className="detail-section" key={section.title}>
+              <p className="eyebrow">{section.eyebrow}</p>
+              <h2>{section.title}</h2>
+              <p>{section.body}</p>
+              {section.points && (
+                <ul className="detail-point-list">
+                  {section.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              )}
+            </section>
+          ))}
+
+          <section className="detail-section">
+            <p className="eyebrow">Stack</p>
+            <h2>制作で使った技術</h2>
+            <ul className="tag-list detail-tags" aria-label={`${project.title} の技術`}>
+              {project.stack.map((stackItem) => (
+                <li key={stackItem}>{stackItem}</li>
+              ))}
+            </ul>
+            {project.link && (
+              <a className="project-link detail-external-link" href={project.link.href} target="_blank" rel="noreferrer">
+                <ExternalLink aria-hidden="true" />
+                {project.link.label}
+              </a>
+            )}
+          </section>
+        </div>
+      </section>
+    </article>
+  );
+}
+
+function ProjectGallery({ images, title }: { images: NonNullable<Project['gallery']>; title: string }) {
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const activeImage = images[activeImageIndex];
+
+  return (
+    <aside className="detail-gallery" aria-label={`${title} の画像`}>
+      <figure className="detail-main-image">
+        <img src={activeImage.src} alt={activeImage.alt} />
+        {activeImage.caption && <figcaption>{activeImage.caption}</figcaption>}
+      </figure>
+      {images.length > 1 && (
+        <div className="detail-thumbnail-list" aria-label="画像を切り替える">
+          {images.map((image, imageIndex) => (
+            <button
+              className="detail-thumbnail"
+              type="button"
+              key={`${image.alt}-${imageIndex}`}
+              aria-label={`${imageIndex + 1}枚目の画像を表示`}
+              aria-pressed={activeImageIndex === imageIndex}
+              onClick={() => setActiveImageIndex(imageIndex)}
+            >
+              <img src={image.src} alt="" />
+            </button>
+          ))}
+        </div>
+      )}
+    </aside>
   );
 }
 
@@ -297,7 +437,7 @@ function ContactSection() {
         {!hasGitHubLink && !hasEmailLink && (
           <div className="contact-placeholder">
             <AwardIcon aria-hidden="true" />
-            <span>{profile.name} / {profile.school}</span>
+            <span>Akihiro / HAL大阪 高度情報学科 WEB開発エンジニア専攻</span>
           </div>
         )}
       </div>
@@ -433,6 +573,7 @@ function createAskPrompt(siteUrl: string, markdownUrl: string, llmsUrl: string) 
     'この内容を読んで、次の観点で答えてください。',
     '- どんな制作経験がある人か',
     '- VCL、Hoppy、学生データ分析AWARD、受賞歴で分かる強み',
+    '- 作品詳細ページを踏まえて、深掘りできそうな実装・設計の話題',
     '- 本人が担当した範囲と、チーム全体の成果の違い',
     '- 面接やカジュアル面談で深掘りするとよさそうな質問',
   ].join('\n');
@@ -454,6 +595,16 @@ function SectionHeading({ eyebrow, title, description }: SectionHeadingProps) {
       {description && <p>{description}</p>}
     </div>
   );
+}
+
+function getProjectIdFromHash() {
+  const detailPrefix = '#/works/';
+
+  if (!window.location.hash.startsWith(detailPrefix)) {
+    return null;
+  }
+
+  return decodeURIComponent(window.location.hash.slice(detailPrefix.length));
 }
 
 export default App;

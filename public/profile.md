@@ -18,6 +18,7 @@
 
 ### VCL / Virtual Chemistry Lab
 
+- Detail: https://indo40722.github.io/portfolio/#/works/vcl
 - 概要: Joy-Con操作と3D表現を組み合わせ、化学実験を安全に体験できる学習システム。
 - 担当: 4人チームのリーダー兼フロントエンド・画面体験担当。
 - 担当内容: 企画整理、入力方式の検証、技術選定、役割分担、ドキュメント整理、Joy-Con入力と画面連携。
@@ -26,6 +27,7 @@
 
 ### Hoppy
 
+- Detail: https://indo40722.github.io/portfolio/#/works/hoppy
 - 概要: カメラ、アウトドア用品、楽器などを貸し借りできるWebサービス。
 - 担当: コミュニティ機能とサポート機能。
 - 担当内容: 投稿、画像投稿、いいね、コメント、Q&A、フォロー、お問い合わせ、FAQ、利用ガイド。
@@ -34,6 +36,7 @@
 
 ### 学生データ分析AWARD 2025
 
+- Detail: https://indo40722.github.io/portfolio/#/works/data-award
 - 概要: 東京・六本木での1泊2日合宿型コンテスト。
 - テーマ: 豊島区の2040年問題。
 - 担当: 資料とオープンデータの読み込み、論点整理、解決策の方向性、発表ストーリーの組み立て。
