@@ -126,7 +126,7 @@ function WorksSection() {
     <section id="works" className="content-section" aria-labelledby="works-title">
       <SectionHeading
         eyebrow="Works"
-        title="制作で担当したことを、作品ごとに見る。"
+        title="制作で担当したこと。"
       />
 
       <div className="content-grid">
@@ -185,7 +185,6 @@ function AwardsSection() {
       <SectionHeading
         eyebrow="Awards"
         title="制作と受賞の記録。"
-        description="コンテスト名、結果、作品の要点を短くまとめています。"
       />
       <div className="award-list" aria-label="受賞歴">
         {awardItems.map((awardItem) => (
@@ -209,7 +208,7 @@ function StrengthsSection() {
     <section id="strengths" className="content-section" aria-labelledby="strengths-title">
       <SectionHeading
         eyebrow="Strengths"
-        title="強みは、相手の状況に合わせて動きを変えられること。"
+        title="状況を見て、動きを整える。"
       />
       <div className="content-grid">
         {strengths.map((strength) => {
