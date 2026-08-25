@@ -4,6 +4,7 @@ import {
   Code2,
   Database,
   FlaskConical,
+  Handshake,
   Headphones,
   MessageSquareHeart,
   Network,
@@ -12,6 +13,8 @@ import {
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import hoppyOverviewImage from '../assets/hoppy-overview.png';
+import t3OperationsImage from '../assets/t3-operations.png';
+import t3TeaBridgeImage from '../assets/t3-tea-bridge.png';
 import vclExperienceImage from '../assets/vcl-experience-ui.png';
 
 export type ProjectImage = {
@@ -209,6 +212,87 @@ export const featuredProjects: Project[] = [
     Icon: Boxes,
   },
   {
+    id: 't3-tea-bridge',
+    title: 'Tea Bridge / T3',
+    eyebrow: 'テラッカソン10th 個人賞・チーム賞',
+    summary:
+      '日本茶農家と海外の買い手をつなぐ、抹茶の仕入れ相談所として企画したWebプロトタイプ。調査、営業リスト作成、商談台帳型の画面制作に取り組みました。',
+    role:
+      'リサーチとWebプロトタイプ制作を担当。中間業者や輸出手続き、競合サービスを調べ、Google Places APIで国内茶農家と海外抹茶カフェの候補リストを作成。Codexも使いながら、画面構成と実装を進めました。',
+    evidence: ['個人賞・チーム賞', '競合・輸出支援調査', 'Google Places API営業リスト', 'Codex活用'],
+    stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Google Places API', 'Codex'],
+    image: {
+      src: t3OperationsImage,
+      alt: 'Tea Bridge / T3の運用画面。抹茶の調達を試飲、品質評価、サンプル依頼、商談まで整理する画面',
+      caption: '抹茶の調達を、試飲、品質評価、サンプル依頼、商談まで整理する運用画面',
+    },
+    gallery: [
+      {
+        src: t3OperationsImage,
+        alt: 'Tea Bridge / T3の運用画面。抹茶の調達を試飲、品質評価、サンプル依頼、商談まで整理する画面',
+        caption: '抹茶の調達を、試飲、品質評価、サンプル依頼、商談まで整理する運用画面',
+      },
+      {
+        src: t3TeaBridgeImage,
+        alt: 'Tea Bridge / T3の理念ページ。茶畑の写真を背景に、日本茶農家と海外の買い手をつなぐコンセプトを伝えている',
+        caption: '日本茶農家と海外の買い手をつなぐコンセプトを伝える理念ページ',
+      },
+    ],
+    detail: {
+      lead:
+        '日本茶農家と海外のカフェ・食品ブランドをつなぐ、抹茶の仕入れ相談所として制作したWebプロトタイプです。単なる通販ではなく、試飲、品質評価、輸出書類、サンプル依頼、商談までを同じ画面で進められる形を目指しました。',
+      facts: [
+        { label: '結果', value: 'テラッカソン10th 個人賞・チーム賞' },
+        { label: '期間', value: '2026年4月-5月' },
+        { label: '担当', value: '調査・リスト作成・Webプロトタイプ' },
+        { label: '対象', value: '日本茶農家と海外の買い手' },
+      ],
+      sections: [
+        {
+          eyebrow: 'Overview',
+          title: '通販ではなく、商談前に整える場を作る',
+          body:
+            '抹茶を買う前に、用途、品質、認証、サンプル条件、農園の背景を確認できる場として設計しました。海外の買い手が商品一覧を見るだけで終わらず、比較、試飲、問い合わせ、商談へ進める導線を意識しています。',
+        },
+        {
+          eyebrow: 'Research',
+          title: '流通と輸出支援の前提を調べる',
+          body:
+            'お茶の流通に中間業者が多い理由、農家単体で輸出する難しさ、FDA対応や残留農薬基準などの実務ハードルを調べました。競合調査では、買い切り型の輸出ではなく、農家を支援する形に近いサービスを比較しました。',
+          points: ['中間業者・共同工場の役割調査', '輸出手続きと規制の整理', '競合サービスの比較', '事業モデルの検討'],
+        },
+        {
+          eyebrow: 'Data',
+          title: '営業先候補をリスト化する',
+          body:
+            'Google Places APIを使い、宇治市、宇治田原町、和束町周辺の茶農家や、カナダの日本茶・抹茶カフェ候補を収集しました。営業前に確認できるよう、Webサイト、住所、連絡先の有無を整理しています。',
+          points: ['国内茶農家候補の収集', '海外抹茶カフェ候補の収集', 'Webサイト・連絡先の整理', '営業リスト化'],
+        },
+        {
+          eyebrow: 'Prototype',
+          title: '商談に進むための画面へ落とし込む',
+          body:
+            'Webプロトタイプでは、商品一覧、商品詳細、Tea Bridgeの理念ページ、農園ツアー、お問い合わせ、運用画面を制作しました。サンプル依頼、品質評価、用途別の提案、本人確認や事業者審査など、実際の商談前後に必要な情報を画面上で扱えるようにしました。',
+          points: ['商品一覧・詳細画面', 'Tea Bridge理念ページ', 'サンプル依頼・品質評価UI', '農園ツアー・お問い合わせ導線'],
+        },
+        {
+          eyebrow: 'AI',
+          title: 'Codexで実装の初速を上げる',
+          body:
+            'Webプロトタイプ制作ではCodexを使い、Next.jsの画面構成やUI実装の初速を上げました。チームの発表内容をどう画面に落とすか、どの機能を見せると商談の流れが伝わるかは、確認しながら調整しました。',
+          points: ['Codexを使ったUI実装補助', 'Next.js画面の作成', '商談台帳UIへの落とし込み', '表示内容の確認と調整'],
+        },
+        {
+          eyebrow: 'Result',
+          title: '発表内容を動く形で伝える',
+          body:
+            'チームで考えたサービス案を、調査資料とWebプロトタイプの両方で伝えられる状態にしました。テラッカソン10thのkakeruXテーマで、個人賞とチーム賞を受賞しています。',
+        },
+      ],
+    },
+    Icon: Handshake,
+  },
+  {
     id: 'data-award',
     title: '学生データ分析AWARD 2025',
     eyebrow: '2026年3月7日-8日 / 準優勝',
@@ -347,13 +431,13 @@ export const skillGroups: SkillGroup[] = [
   {
     title: 'Frontend',
     description: '画面体験、コンポーネント分割、操作の分かりやすさを重視します。',
-    items: ['React', 'TypeScript', 'HTML', 'CSS', 'Responsive UI'],
+    items: ['React', 'TypeScript', 'Next.js', 'HTML', 'CSS', 'Tailwind CSS', 'Responsive UI'],
     Icon: Code2,
   },
   {
     title: 'Backend / API',
     description: '機能ごとの責務分割と、画面から使いやすいAPI設計に関心があります。',
-    items: ['Node.js', 'Socket.IO', 'Python', 'Flask', 'Form Handling'],
+    items: ['Node.js', 'Socket.IO', 'Python', 'Flask', 'Form Handling', 'Google Places API'],
     Icon: Network,
   },
   {

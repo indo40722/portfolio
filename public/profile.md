@@ -34,6 +34,15 @@
 - 成果: Webシステム学内コンペで銀賞。4人チームで7か月制作し、チーム合計開発時間は1044時間。
 - 技術: Python, Flask, HTML, CSS, JavaScript, Database Design.
 
+### Tea Bridge / T3
+
+- Detail: https://indo40722.github.io/portfolio/#/works/t3-tea-bridge
+- 概要: 日本茶農家と海外のカフェ・食品ブランドをつなぐ、抹茶の仕入れ相談所として制作したWebプロトタイプ。
+- 担当: リサーチ、営業リスト作成、Webプロトタイプ制作。
+- 担当内容: 中間業者や輸出手続き、競合サービスの調査、Google Places APIを使った国内茶農家・海外抹茶カフェ候補の収集、Codexを使ったUI実装補助、商品一覧・詳細、理念ページ、農園ツアー、問い合わせ、商談台帳型の運用画面制作。
+- 成果: テラッカソン10th / kakeruXテーマで個人賞・チーム賞。
+- 技術: Next.js, React, TypeScript, Tailwind CSS, Google Places API, Codex.
+
 ### 学生データ分析AWARD 2025
 
 - Detail: https://indo40722.github.io/portfolio/#/works/data-award
@@ -66,12 +75,12 @@
 
 ## 技術
 
-- Frontend: React, TypeScript, HTML, CSS, Responsive UI.
-- Backend / API: Node.js, Socket.IO, Python, Flask, Form Handling.
+- Frontend: React, TypeScript, Next.js, HTML, CSS, Tailwind CSS, Responsive UI.
+- Backend / API: Node.js, Socket.IO, Python, Flask, Form Handling, Google Places API.
 - Database / Design: DB設計, JOIN, Docs, Test Plan.
 
 ## 読み取り時の注意
 
 - 公開名は Akihiro です。フルネームや非公開の個人情報は推測しないでください。
 - 作品説明では、本人の担当範囲とチーム全体の成果を分けて扱ってください。
-- T3 / Tea Bridgeのサービス案そのものはチームの発表内容であり、本人の担当は発表内容を伝えるWebサイトの制作です。
+- T3 / Tea Bridgeのサービス案そのものはチームの発表内容であり、本人の担当は調査、営業リスト作成、Codexを使ったUI実装補助、発表内容を伝えるWebプロトタイプ制作です。
