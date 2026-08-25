@@ -12,10 +12,19 @@ import {
   Users,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
+import hoppyCommunityImage from '../assets/hoppy-community.png';
+import hoppyListingConfirmImage from '../assets/hoppy-listing-confirm.png';
 import hoppyOverviewImage from '../assets/hoppy-overview.png';
+import hoppyQaThreadImage from '../assets/hoppy-qa-thread.png';
+import hoppyUserProfileImage from '../assets/hoppy-user-profile.png';
 import t3OperationsImage from '../assets/t3-operations.png';
 import t3TeaBridgeImage from '../assets/t3-tea-bridge.png';
+import vclConnectionGuideImage from '../assets/vcl-connection-guide.png';
+import vclDashboardImage from '../assets/vcl-dashboard.png';
 import vclExperienceImage from '../assets/vcl-experience-ui.png';
+import vclLabFreeModeImage from '../assets/vcl-lab-free-mode.png';
+import vclSelectModeImage from '../assets/vcl-select-mode.png';
+import vclTrophyImage from '../assets/vcl-trophy.png';
 
 export type ProjectImage = {
   src: string;
@@ -110,6 +119,31 @@ export const featuredProjects: Project[] = [
         alt: 'VCLの実験体験UI。Joy-Con入力、化学実験の3D表現、進行状態の画面をまとめた資料',
         caption: 'Joy-Con入力、実験の3D表示、進行状態、学習進捗をまとめたVCLの画面資料',
       },
+      {
+        src: vclDashboardImage,
+        alt: 'VCLのモード選択画面。チュートリアル、フリーモード、セレクトモードを選べる',
+        caption: '学習の入り口として、チュートリアル、フリーモード、セレクトモードを選ぶ画面',
+      },
+      {
+        src: vclSelectModeImage,
+        alt: 'VCLの実験ライブラリ。実験カードから行いたい化学実験を選ぶ画面',
+        caption: '実験ライブラリから、難易度や学習内容を見て実験を選ぶ画面',
+      },
+      {
+        src: vclLabFreeModeImage,
+        alt: 'VCLの3D実験画面。試験管とフラスコを表示し、実験の動きを確認できる',
+        caption: '試験管とフラスコを3Dで表示し、Joy-Con操作と実験進行をつなぐ画面',
+      },
+      {
+        src: vclTrophyImage,
+        alt: 'VCLのトロフィー画面。実験達成状況と学習進捗を一覧で確認できる',
+        caption: '実験の達成状況を残し、学習の進み具合を確認できるトロフィー画面',
+      },
+      {
+        src: vclConnectionGuideImage,
+        alt: 'VCLのJoy-Con接続ガイド。ペアリング、PC接続、動作確認の手順を示す',
+        caption: 'Joy-Conの接続、動作確認、操作開始までの不安を減らすガイド画面',
+      },
     ],
     detail: {
       lead:
@@ -170,6 +204,26 @@ export const featuredProjects: Project[] = [
         src: hoppyOverviewImage,
         alt: 'Hoppyの概要資料。趣味道具レンタルサービスの画面と主要機能をまとめたスライド',
         caption: '趣味道具レンタル、コミュニティ、Q&A、サポート機能をまとめたHoppyの概要資料',
+      },
+      {
+        src: hoppyCommunityImage,
+        alt: 'Hoppyのコミュニティ投稿画面。体験共有、画像投稿、いいね、コメントを確認できる',
+        caption: '趣味の体験共有、画像投稿、いいね、コメントまで扱うコミュニティ画面',
+      },
+      {
+        src: hoppyQaThreadImage,
+        alt: 'HoppyのQ&A画面。質問、回答、ベストアンサー、コメント投稿を確認できる',
+        caption: 'レンタル前の不安を質問と回答で解消するQ&A詳細画面',
+      },
+      {
+        src: hoppyListingConfirmImage,
+        alt: 'Hoppyの出品確認画面。商品画像、レンタル価格、購入価格、タグ、説明を確認できる',
+        caption: '商品画像、価格、タグ、説明を確認してから出品できる登録確認画面',
+      },
+      {
+        src: hoppyUserProfileImage,
+        alt: 'Hoppyのユーザープロフィール画面。公開商品と公開中のコミュニティ投稿を確認できる',
+        caption: '公開中の商品とコミュニティ投稿をまとめて見られるユーザープロフィール画面',
       },
     ],
     detail: {
