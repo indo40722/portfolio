@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { AskPortfolioWidget } from './components/AskPortfolioWidget';
 import { AwardsSection } from './components/AwardsSection';
+import { CertificationsSection } from './components/CertificationsSection';
 import { ContactSection } from './components/ContactSection';
 import { HeroSection } from './components/HeroSection';
 import { ProjectDetailPage } from './components/ProjectDetailPage';
@@ -46,6 +47,7 @@ function App() {
             <WorksSection />
             <AwardsSection />
             <StrengthsSection />
+            <CertificationsSection />
             <SkillsSection />
             <ContactSection />
           </>

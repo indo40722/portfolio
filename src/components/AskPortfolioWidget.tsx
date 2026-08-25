@@ -128,7 +128,7 @@ function createAskPrompt(siteUrl: string, markdownUrl: string, llmsUrl: string) 
     '',
     'この内容を読んで、次の観点で答えてください。',
     '- どんな制作経験がある人か',
-    '- VCL、Hoppy、学生データ分析AWARD、受賞歴で分かる強み',
+    '- VCL、Hoppy、Tea Bridge、学生データ分析AWARD、資格・検定、受賞歴で分かる強み',
     '- 作品詳細ページを踏まえて、深掘りできそうな実装・設計の話題',
     '- 本人が担当した範囲と、チーム全体の成果の違い',
     '- 面接やカジュアル面談で深掘りするとよさそうな質問',

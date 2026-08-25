@@ -886,6 +886,94 @@ h1 {
   line-height: 1.85;
 }
 
+#certifications {
+  background:
+    linear-gradient(180deg, rgba(180, 122, 53, 0.09), transparent 340px),
+    var(--paper-band);
+}
+
+.certification-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.certification-panel {
+  min-height: 340px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 24px;
+  background: rgba(255, 250, 241, 0.78);
+}
+
+.certification-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.certification-heading svg {
+  width: 23px;
+  height: 23px;
+  color: var(--secondary-dark);
+}
+
+.certification-panel h3 {
+  font-family: 'Space Grotesk', 'BIZ UDPGothic', sans-serif;
+  font-size: 1.35rem;
+}
+
+.certification-panel p {
+  min-height: 68px;
+  margin: 18px 0 20px;
+  color: var(--ink-muted);
+  line-height: 1.75;
+}
+
+.certification-list {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.certification-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  border-top: 1px solid rgba(25, 23, 20, 0.12);
+  padding: 12px 0;
+}
+
+.certification-list span {
+  color: var(--ink);
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.certification-list small {
+  border: 1px solid rgba(25, 23, 20, 0.12);
+  border-radius: 999px;
+  padding: 4px 8px;
+  color: var(--secondary-dark);
+  background: rgba(79, 107, 99, 0.08);
+  font-family: 'Space Grotesk', 'BIZ UDPGothic', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.certification-source {
+  display: flex;
+  justify-content: center;
+  max-width: 1180px;
+  margin: 18px auto 0;
+}
+
 #skills {
   background:
     linear-gradient(180deg, var(--secondary-subtle), transparent 340px),
@@ -1168,6 +1256,10 @@ h1 {
     grid-template-columns: 1fr 1fr;
   }
 
+  .certification-grid {
+    grid-template-columns: 1fr;
+  }
+
   .detail-hero-grid,
   .detail-body {
     grid-template-columns: 1fr;
@@ -1292,8 +1384,22 @@ h1 {
 
   .project-card,
   .strength-item,
+  .certification-panel,
   .skill-panel {
     min-height: auto;
+  }
+
+  .certification-panel p {
+    min-height: auto;
+  }
+
+  .certification-list li {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+
+  .certification-list small {
+    justify-self: start;
   }
 
   .skill-panel p {

@@ -1,6 +1,9 @@
 import {
   BarChart3,
+  BadgeCheck,
   Boxes,
+  BrainCircuit,
+  BriefcaseBusiness,
   Code2,
   Database,
   FlaskConical,
@@ -75,6 +78,18 @@ export type SkillGroup = {
   Icon: LucideIcon;
 };
 
+export type CertificationItem = {
+  name: string;
+  status: string;
+};
+
+export type CertificationGroup = {
+  title: string;
+  description: string;
+  items: CertificationItem[];
+  Icon: LucideIcon;
+};
+
 export type AwardItem = {
   date: string;
   contest: string;
@@ -87,6 +102,7 @@ export const navigationItems = [
   { label: 'Works', href: '#works' },
   { label: 'Awards', href: '#awards' },
   { label: 'Strengths', href: '#strengths' },
+  { label: 'Certifications', href: '#certifications' },
   { label: 'Skills', href: '#skills' },
 ];
 
@@ -509,6 +525,53 @@ export const skillGroups: SkillGroup[] = [
   },
 ];
 
+export const certificationGroups: CertificationGroup[] = [
+  {
+    title: 'Cloud / AI',
+    description: 'クラウドと生成AIを、サービス名だけでなく概念から理解するために受験しました。',
+    items: [
+      { name: 'AWS Certified AI Practitioner', status: '合格' },
+      { name: 'Google Cloud Digital Leader', status: '合格' },
+    ],
+    Icon: BrainCircuit,
+  },
+  {
+    title: 'Web / Design',
+    description: '画面制作、情報設計、Webデザインの基礎を制作経験とつなげて確認しています。',
+    items: [
+      { name: 'ウェブデザイン技能検定 3級', status: '合格' },
+      { name: 'Webデザイナー検定 エキスパート', status: '合格' },
+      { name: 'Webデザイナー検定 ベーシック', status: '合格' },
+      { name: 'J検 情報デザイン試験 上級', status: '合格' },
+      { name: 'CGエンジニア検定 ベーシック', status: '合格' },
+      { name: 'マルチメディア検定 エキスパート / ベーシック', status: '合格' },
+    ],
+    Icon: BadgeCheck,
+  },
+  {
+    title: 'IT / System',
+    description: '情報処理、システム設計、プログラミング基礎の学習記録として整理しています。',
+    items: [
+      { name: '基本情報技術者試験 科目A免除試験', status: '合格' },
+      { name: 'J検 情報システム試験 プログラミングスキル', status: '合格' },
+      { name: 'J検 情報システム試験 基本スキル', status: '合格' },
+      { name: 'J検 情報システム試験 システムデザインスキル', status: '合格' },
+    ],
+    Icon: Code2,
+  },
+  {
+    title: 'Business / Other',
+    description: '発表、ビジネス基礎、現場対応の学習として、IT以外の講習も一部記載しています。',
+    items: [
+      { name: 'ビジネス能力検定ジョブパス 2級', status: '合格' },
+      { name: 'プレゼン検定 準2級', status: '合格' },
+      { name: '食品衛生責任者', status: '修了' },
+      { name: '上級救命講習', status: '修了' },
+    ],
+    Icon: BriefcaseBusiness,
+  },
+];
+
 export const contactNotes = [
   '2028年卒のWeb開発エンジニア職を志望しています。',
   'React / TypeScript / Node.jsを中心に、設計・レビュー・テストまで考えられる開発力を伸ばしています。',
@@ -516,6 +579,7 @@ export const contactNotes = [
 
 export const profileLinks = {
   github: 'https://github.com/indo40722',
+  note: 'https://note.com/quick_guppy8535',
   email: '',
 };
 
