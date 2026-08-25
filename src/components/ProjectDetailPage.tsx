@@ -64,13 +64,18 @@ export function ProjectDetailPage({ project }: { project: Project }) {
                 <li key={stackItem}>{stackItem}</li>
               ))}
             </ul>
-            {project.link && (
+          </section>
+
+          {project.link && (
+            <section className="detail-section">
+              <p className="eyebrow">Materials</p>
+              <h2>関連資料</h2>
               <a className="project-link detail-external-link" href={project.link.href} target="_blank" rel="noreferrer">
                 <ExternalLink aria-hidden="true" />
                 {project.link.label}
               </a>
-            )}
-          </section>
+            </section>
+          )}
         </div>
       </section>
     </article>

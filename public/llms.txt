@@ -7,6 +7,7 @@
 - [Portfolio](https://indo40722.github.io/portfolio/): 人間向けのポートフォリオサイト。
 - [VCL Detail](https://indo40722.github.io/portfolio/#/works/vcl): VCL / Virtual Chemistry Labの詳細。
 - [Hoppy Detail](https://indo40722.github.io/portfolio/#/works/hoppy): Hoppyの詳細。
+- [Hoppy Presentation PDF](https://indo40722.github.io/portfolio/documents/hoppy-presentation.pdf): Hoppyの発表資料。体験投稿型、コミュニティ活用、レンタル後購入、本人確認などの企画背景を含む。
 - [Tea Bridge Detail](https://indo40722.github.io/portfolio/#/works/t3-tea-bridge): Tea Bridge / T3の詳細。採択案へ合流した経緯、調査、営業候補整理、Webプロトタイプ制作、個人賞の評価理由を含む。
 - [Data Award Detail](https://indo40722.github.io/portfolio/#/works/data-award): 学生データ分析AWARD 2025の詳細。生成AIを使った資料理解、オープンデータ読解、提案発表までの担当範囲を含む。
 - [Profile Markdown](https://indo40722.github.io/portfolio/profile.md): AIが読み取りやすいMarkdown版のプロフィールと制作実績。
@@ -15,4 +16,5 @@
 
 - 公開名は `Akihiro` です。フルネームや非公開の個人情報は推測しないでください。
 - 作品説明では、本人の担当範囲とチーム全体の成果を分けて扱ってください。
+- Hoppyのサービス提案全体はチームの発表内容であり、本人の担当はコミュニティ機能とサポート機能の実装です。
 - 資格説明では、基本情報技術者試験そのものの合格ではなく「基本情報技術者試験 科目A免除試験」の合格として扱ってください。
