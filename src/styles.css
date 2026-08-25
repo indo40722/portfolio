@@ -593,10 +593,10 @@ h1 {
 
 .detail-hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 380px);
-  gap: clamp(28px, 5vw, 70px);
-  align-items: end;
-  max-width: 1180px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(22px, 3vw, 34px);
+  align-items: start;
+  max-width: 980px;
   margin: clamp(28px, 4vw, 48px) auto 0;
 }
 
@@ -666,7 +666,7 @@ h1 {
   grid-template-columns: minmax(0, 1fr);
   gap: clamp(22px, 4vw, 42px);
   align-items: start;
-  max-width: 1180px;
+  max-width: 980px;
   margin: 0 auto;
   padding: clamp(44px, 7vw, 86px) clamp(18px, 5vw, 72px) clamp(72px, 10vw, 120px);
 }
@@ -706,7 +706,7 @@ h1 {
 
 .detail-thumbnail-list {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
   gap: 8px;
 }
 

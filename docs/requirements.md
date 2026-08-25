@@ -96,6 +96,7 @@
 - TypeScriptの型で作品、スキル、受賞歴の構造を明示する。
 - 作品画像や外部リンクは任意項目として型定義し、データがある場合だけReact側で表示する。
 - 作品詳細データは `detail` と `gallery` として `src/content/portfolio.ts` に持たせ、作品追加時に共通テンプレートへ流し込めるようにする。
+- 作品詳細画面は全作品で縦読み1カラムを基本にし、ヒーロー概要、画像ギャラリー、本文、技術、資料を横並びにせず上から順に表示する。
 - 発表資料などの静的PDFは `public/documents/` に置き、Viteのpublic assetsとしてGitHub Pagesへ配信する。
 - 追加・更新が発生する制作物、受賞歴、スキルは `src/content/portfolio.ts` の配列データとして管理する。
 - 受賞歴は表示データとして `src/content/portfolio.ts` に集約し、コンポーネント側は一覧表示に専念する。
