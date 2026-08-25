@@ -5,6 +5,7 @@ import type { Project } from '../content/portfolio';
 export function ProjectDetailPage({ project }: { project: Project }) {
   const ProjectIcon = project.Icon;
   const galleryImages = project.gallery ?? (project.image ? [project.image] : []);
+  const isPdfLink = project.link?.href.toLowerCase().endsWith('.pdf') ?? false;
 
   return (
     <article className="detail-page">
@@ -69,7 +70,12 @@ export function ProjectDetailPage({ project }: { project: Project }) {
           {project.link && (
             <section className="detail-section">
               <p className="eyebrow">Materials</p>
-              <h2>関連資料</h2>
+              <h2>{isPdfLink ? '発表資料' : '関連資料'}</h2>
+              {isPdfLink && (
+                <div className="detail-pdf-frame">
+                  <iframe src={project.link.href} title={`${project.title} 発表資料`} loading="lazy" />
+                </div>
+              )}
               <a className="project-link detail-external-link" href={project.link.href} target="_blank" rel="noreferrer">
                 <ExternalLink aria-hidden="true" />
                 {project.link.label}

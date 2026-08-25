@@ -663,8 +663,8 @@ h1 {
 
 .detail-body {
   display: grid;
-  grid-template-columns: minmax(280px, 0.84fr) minmax(0, 1fr);
-  gap: clamp(24px, 5vw, 72px);
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(22px, 4vw, 42px);
   align-items: start;
   max-width: 1180px;
   margin: 0 auto;
@@ -672,13 +672,10 @@ h1 {
 }
 
 .detail-body.no-gallery {
-  grid-template-columns: minmax(0, 900px);
-  justify-content: center;
+  max-width: 980px;
 }
 
 .detail-gallery {
-  position: sticky;
-  top: 98px;
   display: grid;
   gap: 12px;
 }
@@ -694,7 +691,7 @@ h1 {
 
 .detail-main-image img {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   object-position: top center;
 }
@@ -780,6 +777,23 @@ h1 {
 
 .detail-external-link {
   margin-top: 22px;
+}
+
+.detail-pdf-frame {
+  overflow: hidden;
+  margin-top: 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper-soft);
+}
+
+.detail-pdf-frame iframe {
+  display: block;
+  width: 100%;
+  height: min(76vh, 760px);
+  min-height: 560px;
+  border: 0;
+  background: #fff;
 }
 
 .tag-list {
@@ -1393,6 +1407,11 @@ h1 {
 
   .certification-list small {
     justify-self: start;
+  }
+
+  .detail-pdf-frame iframe {
+    height: 68vh;
+    min-height: 420px;
   }
 
   .skill-panel p {
