@@ -1,4 +1,4 @@
-import { certificationGroups, profileLinks } from '../content/portfolio';
+import { certificationGroups } from '../content/portfolio';
 import { SectionHeading } from './SectionHeading';
 
 export function CertificationsSection() {
@@ -28,12 +28,6 @@ export function CertificationsSection() {
             </article>
           );
         })}
-      </div>
-
-      <div className="certification-source">
-        <a className="project-link" href={profileLinks.note} target="_blank" rel="noreferrer">
-          Noteで学習記録を見る
-        </a>
       </div>
     </section>
   );

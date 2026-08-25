@@ -532,6 +532,7 @@ export const certificationGroups: CertificationGroup[] = [
     items: [
       { name: 'AWS Certified AI Practitioner', status: '合格' },
       { name: 'Google Cloud Digital Leader', status: '合格' },
+      { name: 'AZ-900: Microsoft Azure Fundamentals', status: '合格' },
     ],
     Icon: BrainCircuit,
   },
@@ -579,7 +580,6 @@ export const contactNotes = [
 
 export const profileLinks = {
   github: 'https://github.com/indo40722',
-  note: 'https://note.com/quick_guppy8535',
   email: '',
 };
 

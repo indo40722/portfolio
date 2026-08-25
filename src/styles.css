@@ -967,13 +967,6 @@ h1 {
   white-space: nowrap;
 }
 
-.certification-source {
-  display: flex;
-  justify-content: center;
-  max-width: 1180px;
-  margin: 18px auto 0;
-}
-
 #skills {
   background:
     linear-gradient(180deg, var(--secondary-subtle), transparent 340px),
