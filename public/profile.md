@@ -78,7 +78,7 @@
 
 - Cloud / AI: AWS Certified AI Practitioner, Google Cloud Digital Leader, AZ-900: Microsoft Azure Fundamentals.
 - Web / Design: ウェブデザイン技能検定 3級, Webデザイナー検定 エキスパート, Webデザイナー検定 ベーシック, J検 情報デザイン試験 上級, CGエンジニア検定 ベーシック, マルチメディア検定 エキスパート / ベーシック.
-- IT / System: 基本情報技術者試験 科目A免除試験, J検 情報システム試験 プログラミングスキル, J検 情報システム試験 基本スキル, J検 情報システム試験 システムデザインスキル.
+- IT / System: 基本情報技術者試験 科目A免除試験, Python3エンジニア認定基礎試験, J検 情報システム試験 プログラミングスキル, J検 情報システム試験 基本スキル, J検 情報システム試験 システムデザインスキル.
 - Business / Other: ビジネス能力検定ジョブパス 2級, プレゼン検定 準2級, 食品衛生責任者, 上級救命講習.
 
 ## 技術

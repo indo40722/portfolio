@@ -554,6 +554,7 @@ export const certificationGroups: CertificationGroup[] = [
     description: '情報処理、システム設計、プログラミング基礎の学習記録として整理しています。',
     items: [
       { name: '基本情報技術者試験 科目A免除試験', status: '合格' },
+      { name: 'Python3エンジニア認定基礎試験', status: '合格' },
       { name: 'J検 情報システム試験 プログラミングスキル', status: '合格' },
       { name: 'J検 情報システム試験 基本スキル', status: '合格' },
       { name: 'J検 情報システム試験 システムデザインスキル', status: '合格' },

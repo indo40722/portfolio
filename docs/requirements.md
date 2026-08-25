@@ -51,6 +51,7 @@
 - 資格・検定セクションを設け、Cloud / AI、Web / Design、IT / System、Business / Otherに分けて確認できること。
 - 資格・検定セクションにはNoteへの外部リンクボタンを置かず、資格名と状態だけを整理して表示すること。
 - Cloud / AIの資格には、AWS、Google Cloud、Microsoft Azureの基礎資格を含めること。
+- IT / Systemの資格には、基本情報技術者試験 科目A免除試験、Python3エンジニア認定基礎試験、J検 情報システム試験の各スキルを含めること。
 - 強み、技術、連絡先の各セクションを持つこと。
 - 右下に常駐する相談ボタンから、ChatGPT、Claude、Gemini、Perplexityにポートフォリオ相談用プロンプトを渡せること。
 - AIが読み取りやすい公開Markdownとして `profile.md` を提供し、サイト構造の案内として `llms.txt` を提供すること。
