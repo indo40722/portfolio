@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import type { Project } from '../content/portfolio';
 
@@ -43,18 +43,21 @@ export function ProjectDetailPage({ project }: { project: Project }) {
         {galleryImages.length > 0 && <ProjectGallery key={project.id} images={galleryImages} title={project.title} />}
         <div className="detail-copy">
           {project.detail.sections.map((section) => (
-            <section className="detail-section" key={section.title}>
-              <p className="eyebrow">{section.eyebrow}</p>
-              <h2>{section.title}</h2>
-              <p>{section.body}</p>
-              {section.points && (
-                <ul className="detail-point-list">
-                  {section.points.map((point) => (
-                    <li key={point}>{point}</li>
-                  ))}
-                </ul>
-              )}
-            </section>
+            <Fragment key={section.title}>
+              <section className="detail-section">
+                <p className="eyebrow">{section.eyebrow}</p>
+                <h2>{section.title}</h2>
+                <p>{section.body}</p>
+                {section.points && (
+                  <ul className="detail-point-list">
+                    {section.points.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+              {section.media && <DetailMediaGrid media={section.media} title={section.title} />}
+            </Fragment>
           ))}
 
           <section className="detail-section">
@@ -85,6 +88,19 @@ export function ProjectDetailPage({ project }: { project: Project }) {
         </div>
       </section>
     </article>
+  );
+}
+
+function DetailMediaGrid({ media, title }: { media: NonNullable<Project['detail']['sections'][number]['media']>; title: string }) {
+  return (
+    <div className="detail-process-media" aria-label={`${title} の検証画像`}>
+      {media.map((image) => (
+        <figure key={image.src}>
+          <img src={image.src} alt={image.alt} />
+          {image.caption && <figcaption>{image.caption}</figcaption>}
+        </figure>
+      ))}
+    </div>
   );
 }
 

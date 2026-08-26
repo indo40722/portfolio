@@ -22,10 +22,19 @@ import hoppyQaThreadImage from '../assets/hoppy-qa-thread.png';
 import hoppyUserProfileImage from '../assets/hoppy-user-profile.png';
 import t3OperationsImage from '../assets/t3-operations.png';
 import t3TeaBridgeImage from '../assets/t3-tea-bridge.png';
+import vclApriltagControllerSpecImage from '../assets/vcl-apriltag-controller-spec.jpg';
+import vclApriltagPrintedBackImage from '../assets/vcl-apriltag-printed-back.jpg';
+import vclApriltagPrintedFrontImage from '../assets/vcl-apriltag-printed-front.jpg';
 import vclConnectionGuideImage from '../assets/vcl-connection-guide.png';
 import vclDashboardImage from '../assets/vcl-dashboard.png';
 import vclExperienceImage from '../assets/vcl-experience-ui.png';
+import vclHandposeColorControllerFrontImage from '../assets/vcl-handpose-color-controller-front.jpg';
+import vclHandposeControllerGripImage from '../assets/vcl-handpose-controller-grip.jpg';
+import vclHandposeGestureIterationImage from '../assets/vcl-handpose-gesture-iteration.jpg';
 import vclLabFreeModeImage from '../assets/vcl-lab-free-mode.png';
+import vclMarkerBandSpecImage from '../assets/vcl-marker-band-spec.jpg';
+import vclMicrocontrollerPrototypeImage from '../assets/vcl-microcontroller-prototype.jpg';
+import vclMultimarkerBandProposalImage from '../assets/vcl-multimarker-band-proposal.jpg';
 import vclSelectModeImage from '../assets/vcl-select-mode.png';
 import vclTrophyImage from '../assets/vcl-trophy.png';
 
@@ -40,6 +49,7 @@ export type ProjectDetailSection = {
   title: string;
   body: string;
   points?: string[];
+  media?: ProjectImage[];
 };
 
 export type ProjectFact = {
@@ -122,8 +132,8 @@ export const featuredProjects: Project[] = [
       'Joy-Con操作と3D表現を組み合わせ、化学実験を安全に体験できる学習システム。操作、反応、結果表示、解説を一つの流れとして設計しました。',
     role:
       '4人チームのリーダー兼フロントエンド・画面体験担当。企画整理、入力方式の検証、技術選定、役割分担、ドキュメント整理、Joy-Con入力と画面連携を担当。',
-    evidence: ['Joy-Con入力', '3D実験表現', '進行処理', '学習進捗・トロフィー保存'],
-    stack: ['Node.js', 'Socket.IO', 'Three.js', 'Joy-Con', 'Team Lead'],
+    evidence: ['入力方式の試作検証', 'Joy-Con入力', '3D実験表現', '展示投票150名弱'],
+    stack: ['Node.js', 'Socket.IO', 'Three.js', 'Joy-Con', 'MediaPipe検証', 'AprilTag検証', 'Team Lead'],
     image: {
       src: vclExperienceImage,
       alt: 'VCLの実験体験UI。Joy-Con入力、化学実験の3D表現、進行状態の画面をまとめた資料',
@@ -169,6 +179,7 @@ export const featuredProjects: Project[] = [
         { label: '体制', value: '4人チーム / リーダー' },
         { label: '担当', value: '画面体験・フロントエンド' },
         { label: '入力', value: 'Joy-Con' },
+        { label: '展示', value: '150名弱が投票・評価' },
       ],
       sections: [
         {
@@ -186,9 +197,64 @@ export const featuredProjects: Project[] = [
         },
         {
           eyebrow: 'Decision',
-          title: '入力方式を検証してJoy-Conを採用',
+          title: 'MediaPipe、AprilTag、マイコン案まで試す',
           body:
-            '最初からJoy-Conだけに決めていたわけではありません。画像認識、QRコード、RGB検出、マイコンとジャイロセンサーなどを比較し、操作感と実装の現実性を見ながらJoy-Conを採用しました。',
+            '最初からJoy-Conだけに決めていたわけではありません。HAL内にAI学科がある環境もあり、MediaPipeで手のランドマークを取る案、AprilTagやカラーマーカーを使う案、マイコンとジャイロセンサーを使う案を検討しました。AprilTagはAIで検討図を起こし、3Dプリントした試作物でも確認しました。認識の安定性、展示での説明しやすさ、制作期間を比べ、最終的にJoy-Conを採用しました。',
+          points: ['MediaPipeによる手認識案の検討', 'AprilTagマーカーのAI検討図と3Dプリント試作', 'マイコン・センサー案の検討', '展示で説明しやすい入力方式の比較'],
+          media: [
+            {
+              src: vclHandposeControllerGripImage,
+              alt: '手のランドマークでコントローラーの握り方を認識する検討図',
+              caption: 'MediaPipeで手のランドマークを取り、握り方や傾きを入力に使う案を検討',
+            },
+            {
+              src: vclHandposeColorControllerFrontImage,
+              alt: '手のランドマークと色マーカーでコントローラーを認識する検討図',
+              caption: '手認識と色マーカーを組み合わせる入力方式の検討イメージ',
+            },
+            {
+              src: vclHandposeGestureIterationImage,
+              alt: '手のランドマークから握り動作を読み取る検討イメージ',
+              caption: '握り動作をランドマークの角度から読む案も試しました',
+            },
+            {
+              src: vclMarkerBandSpecImage,
+              alt: '試験管に貼るマルチマーカーバンドの寸法検討図',
+              caption: '試験管の曲面でも見えるように、複数IDを帯状に配置する検討図',
+            },
+            {
+              src: vclMultimarkerBandProposalImage,
+              alt: '試験管用マルチマーカーバンドの仕組みとメリットをまとめた検討図',
+              caption: '回転や歪みに強い認識方式として、マルチマーカーバンドを検討',
+            },
+            {
+              src: vclApriltagControllerSpecImage,
+              alt: 'AprilTagコントローラーの構造と制作方法の検討図',
+              caption: 'AprilTagを3Dプリント部品に組み込み、磁石固定する構造を検討',
+            },
+            {
+              src: vclApriltagPrintedFrontImage,
+              alt: '3DプリントしたAprilTag試作物の表面',
+              caption: 'AIで起こした構造案をもとに、3DプリントしたAprilTag試作物',
+            },
+            {
+              src: vclApriltagPrintedBackImage,
+              alt: '3DプリントしたAprilTag試作物の裏面',
+              caption: '裏面の番号や固定方法も含め、展示で使えるか確認しました',
+            },
+            {
+              src: vclMicrocontrollerPrototypeImage,
+              alt: 'マイコンと配線を使った入力方式の試作',
+              caption: 'マイコンとセンサーを使う入力方式も検討し、実装コストを比較',
+            },
+          ],
+        },
+        {
+          eyebrow: 'Exhibition',
+          title: '名刺で展示への導線も試す',
+          body:
+            '学内展示では、作品を見に来てもらう導線として名刺も配りました。大きな効果までは期待していませんでしたが、実際に名刺を見て展示まで来てくれた人がいて、作品の伝え方まで試せたのは収穫でした。150名弱の人に投票・評価してもらい、学内コンテストで最も良い評価を受けました。',
+          points: ['学内で作品名刺を配布', '名刺を見て展示に来た人を確認', '150名弱が投票・評価', '学内コンテストで金賞'],
         },
         {
           eyebrow: 'Result',

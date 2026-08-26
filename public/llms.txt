@@ -5,7 +5,7 @@
 ## Docs
 
 - [Portfolio](https://indo40722.github.io/portfolio/): 人間向けのポートフォリオサイト。
-- [VCL Detail](https://indo40722.github.io/portfolio/#/works/vcl): VCL / Virtual Chemistry Labの詳細。
+- [VCL Detail](https://indo40722.github.io/portfolio/#/works/vcl): VCL / Virtual Chemistry Labの詳細。Joy-Con入力、3D実験表現、MediaPipe・AprilTag・マイコン案の試行錯誤、学内展示での投票評価を含む。
 - [Hoppy Detail](https://indo40722.github.io/portfolio/#/works/hoppy): Hoppyの詳細。
 - [Hoppy Presentation PDF](https://indo40722.github.io/portfolio/documents/hoppy-presentation.pdf): Hoppyの発表資料。本人が企画立案、発表資料作成、発表を担当し、体験投稿型、コミュニティ活用、レンタル後購入、本人確認などの企画背景を含む。
 - [Tea Bridge Detail](https://indo40722.github.io/portfolio/#/works/t3-tea-bridge): Tea Bridge / T3の詳細。採択案へ合流した経緯、調査、営業候補整理、Webプロトタイプ制作、個人賞の評価理由を含む。

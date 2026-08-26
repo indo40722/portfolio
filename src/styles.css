@@ -770,6 +770,36 @@ h1 {
   background: rgba(255, 250, 241, 0.52);
 }
 
+.detail-process-media {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.detail-process-media figure {
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 250, 241, 0.82);
+}
+
+.detail-process-media img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  background: #fff;
+}
+
+.detail-process-media figcaption {
+  min-height: 78px;
+  border-top: 1px solid var(--line);
+  padding: 10px 12px;
+  color: var(--ink-muted);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
 .detail-tags {
   margin-top: 20px;
   padding-top: 0;
@@ -1276,6 +1306,10 @@ h1 {
     position: static;
   }
 
+  .detail-process-media {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .award-row {
     grid-template-columns: 104px 1fr;
   }
@@ -1386,6 +1420,10 @@ h1 {
   }
 
   .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-process-media {
     grid-template-columns: 1fr;
   }
 
