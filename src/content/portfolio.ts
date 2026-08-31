@@ -118,9 +118,9 @@ export const navigationItems = [
 
 export const metrics = [
   { value: '金賞', label: 'VCL 学内コンテスト' },
+  { value: 'チーム1位', label: 'メディアリンク3daysインターン' },
   { value: '準優勝', label: '学生データ分析AWARD 2025' },
   { value: '1044h', label: 'Hoppy チーム合計開発時間' },
-  { value: '1位', label: 'コールセンター日間ランキング' },
 ];
 
 export const featuredProjects: Project[] = [
@@ -502,6 +502,13 @@ export const featuredProjects: Project[] = [
 ];
 
 export const awardItems: AwardItem[] = [
+  {
+    date: '2026.08.26-28',
+    contest: 'メディアリンク株式会社 3daysインターンシップ内ハッカソン',
+    prize: 'チーム1位',
+    project: 'Voice × AI 音声要約アプリ',
+    note: '3日間のチーム開発で、音声認識とAI APIを用いた音声要約アプリの企画、実装、発表に取り組み、チームで1位を獲得しました。',
+  },
   {
     date: '2026.05.30-31',
     contest: 'テラッカソン10th / kakeruXテーマ',
