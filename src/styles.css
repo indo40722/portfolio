@@ -1225,7 +1225,7 @@ h1 {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 42px;
+  min-height: 50px;
   border: 1px solid rgba(251, 248, 241, 0.14);
   border-radius: 6px;
   padding: 0 12px;
@@ -1248,6 +1248,18 @@ h1 {
   border-color: rgba(240, 208, 154, 0.72);
   background: rgba(251, 248, 241, 0.13);
   transform: translateY(-1px);
+}
+
+.ask-service-link span {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.ask-service-link small {
+  color: rgba(251, 248, 241, 0.6);
+  font-size: 0.68rem;
+  line-height: 1.1;
 }
 
 .ask-service-link svg,

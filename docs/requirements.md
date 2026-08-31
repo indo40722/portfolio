@@ -60,7 +60,7 @@
 - Cloud / AIの資格には、AWS、Google Cloud、Microsoft Azureの基礎資格を含めること。
 - IT / Systemの資格には、基本情報技術者試験 科目A免除試験、Python3エンジニア認定基礎試験、J検 情報システム試験の各スキルを含めること。
 - 強み、技術、連絡先の各セクションを持つこと。
-- 右下に常駐する相談ボタンから、ChatGPT、Claude、Gemini、Perplexityにポートフォリオ相談用プロンプトを渡せること。
+- 右下に常駐する相談ボタンは、ChatGPTとPerplexityにはURLでプロンプトを渡し、ClaudeとGeminiはプロンプトをコピーしてから開くこと。
 - AIが読み取りやすい公開Markdownとして `profile.md` を提供し、サイト構造の案内として `llms.txt` を提供すること。
 - Awardsが制作・受賞の時系列を兼ねるため、Timelineセクションは設けないこと。
 - モバイル幅でも文字やボタンがはみ出さないこと。

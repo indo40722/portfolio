@@ -2,6 +2,12 @@ import { useState } from 'react';
 import { Check, CircleHelp, Clipboard, ExternalLink, X } from 'lucide-react';
 
 type CopyStatus = 'idle' | 'copied' | 'failed';
+type AiLink = {
+  label: string;
+  href: string;
+  helperText: string;
+  ariaLabel: string;
+};
 
 export function AskPortfolioWidget() {
   const [isPanelOpen, setIsPanelOpen] = useState(false);
@@ -11,22 +17,30 @@ export function AskPortfolioWidget() {
   const llmsUrl = new URL('llms.txt', siteUrl).href;
   const askPrompt = createAskPrompt(siteUrl, markdownUrl, llmsUrl);
   const encodedPrompt = encodeURIComponent(askPrompt);
-  const aiLinks = [
+  const aiLinks: AiLink[] = [
     {
       label: 'ChatGPT',
-      href: `https://chatgpt.com/?prompt=${encodedPrompt}`,
+      href: `https://chatgpt.com/?q=${encodedPrompt}`,
+      helperText: '入力付き',
+      ariaLabel: 'ChatGPTをプロンプト付きで開く',
     },
     {
       label: 'Claude',
       href: 'https://claude.ai/new',
+      helperText: 'コピーして開く',
+      ariaLabel: 'プロンプトをコピーしてClaudeを開く',
     },
     {
       label: 'Gemini',
       href: 'https://gemini.google.com/app',
+      helperText: 'コピーして開く',
+      ariaLabel: 'プロンプトをコピーしてGeminiを開く',
     },
     {
       label: 'Perplexity',
       href: `https://www.perplexity.ai/search?q=${encodedPrompt}`,
+      helperText: '入力付き',
+      ariaLabel: 'Perplexityをプロンプト付きで開く',
     },
   ];
 
@@ -38,7 +52,7 @@ export function AskPortfolioWidget() {
       setCopyStatus('failed');
     }
 
-    window.setTimeout(() => setCopyStatus('idle'), 2400);
+    window.setTimeout(() => setCopyStatus('idle'), 5200);
   }
 
   function handleAiLinkClick() {
@@ -63,7 +77,7 @@ export function AskPortfolioWidget() {
               <X aria-hidden="true" />
             </button>
           </div>
-          <p>ページURLとMarkdownを含むプロンプトを使います。</p>
+          <p>Claude/Geminiはプロンプトをコピーして開きます。入力欄に貼り付けて使ってください。</p>
           <div id="ask-link-grid" aria-label="相談先">
             {aiLinks.map((aiLink) => (
               <a
@@ -72,9 +86,13 @@ export function AskPortfolioWidget() {
                 key={aiLink.label}
                 target="_blank"
                 rel="noreferrer"
+                aria-label={aiLink.ariaLabel}
                 onClick={handleAiLinkClick}
               >
-                <span>{aiLink.label}</span>
+                <span>
+                  {aiLink.label}
+                  <small>{aiLink.helperText}</small>
+                </span>
                 <ExternalLink aria-hidden="true" />
               </a>
             ))}
@@ -88,6 +106,11 @@ export function AskPortfolioWidget() {
               Markdown
             </a>
           </div>
+          {copyStatus === 'copied' && (
+            <p id="ask-status" role="status">
+              コピー済みです。開いたAIの入力欄に貼り付けてください。
+            </p>
+          )}
           {copyStatus === 'failed' && (
             <p id="ask-status" role="status">
               コピーできない場合はMarkdownのURLを渡してください。
