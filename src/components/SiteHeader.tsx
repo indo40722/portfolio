@@ -24,7 +24,7 @@ export function SiteHeader() {
       <a id="site-brand" href="#top" aria-label="トップへ戻る">
         <span>
           <strong>Akihiro</strong>
-          <small>Web Developer Student</small>
+          <small>Webアプリ開発を学んでいます</small>
         </span>
       </a>
 

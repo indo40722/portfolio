@@ -1,22 +1,25 @@
 import { certificationGroups } from '../content/portfolio';
 import { SectionHeading } from './SectionHeading';
 
+const certificationCount = certificationGroups.reduce(
+  (count, group) => count + group.items.length,
+  0,
+);
+
 export function CertificationsSection() {
   return (
     <section id="certifications" className="content-section" aria-labelledby="certifications-title">
-      <SectionHeading eyebrow="Certifications" title="資格・検定の記録。" />
+      <SectionHeading headingId="certifications-title" eyebrow="学習" title="資格・検定" />
 
-      <div className="certification-grid">
-        {certificationGroups.map((certificationGroup) => {
-          const CertificationIcon = certificationGroup.Icon;
-
-          return (
+      <details className="certification-disclosure">
+        <summary>
+          <span>一覧を見る</span>
+          <span className="certification-count">{certificationCount}件</span>
+        </summary>
+        <div className="certification-grid">
+          {certificationGroups.map((certificationGroup) => (
             <article className="certification-panel" key={certificationGroup.title}>
-              <div className="certification-heading">
-                <CertificationIcon aria-hidden="true" />
-                <h3>{certificationGroup.title}</h3>
-              </div>
-              <p>{certificationGroup.description}</p>
+              <h3>{certificationGroup.title}</h3>
               <ul className="certification-list">
                 {certificationGroup.items.map((certificationItem) => (
                   <li key={certificationItem.name}>
@@ -26,9 +29,9 @@ export function CertificationsSection() {
                 ))}
               </ul>
             </article>
-          );
-        })}
-      </div>
+          ))}
+        </div>
+      </details>
     </section>
   );
 }
