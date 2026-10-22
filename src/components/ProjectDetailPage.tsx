@@ -12,7 +12,7 @@ export function ProjectDetailPage({ project }: { project: Project }) {
       <section className="detail-hero" aria-labelledby="detail-title">
         <a className="back-link" href="#works">
           <ArrowLeft aria-hidden="true" />
-          Works に戻る
+          作品一覧に戻る
         </a>
         <div className="detail-hero-grid">
           <div>
@@ -61,7 +61,7 @@ export function ProjectDetailPage({ project }: { project: Project }) {
           ))}
 
           <section className="detail-section">
-            <p className="eyebrow">Stack</p>
+            <p className="eyebrow">技術</p>
             <h2>制作で使った技術</h2>
             <ul className="tag-list detail-tags" aria-label={`${project.title} の技術`}>
               {project.stack.map((stackItem) => (
@@ -72,7 +72,7 @@ export function ProjectDetailPage({ project }: { project: Project }) {
 
           {project.link && (
             <section className="detail-section">
-              <p className="eyebrow">Materials</p>
+              <p className="eyebrow">関連資料</p>
               <h2>{isPdfLink ? '発表資料' : '関連資料'}</h2>
               {isPdfLink && (
                 <div className="detail-pdf-frame">

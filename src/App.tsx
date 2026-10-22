@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { AskPortfolioWidget } from './components/AskPortfolioWidget';
 import { AwardsSection } from './components/AwardsSection';
 import { CertificationsSection } from './components/CertificationsSection';
 import { ContactSection } from './components/ContactSection';
@@ -53,7 +52,6 @@ function App() {
           </>
         )}
       </main>
-      <AskPortfolioWidget />
     </>
   );
 }
